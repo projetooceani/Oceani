@@ -9,5 +9,5 @@ import br.org.generation.oceani.model.TemaModel;
 
 @Repository
 public interface OceaniRepository  extends JpaRepository <TemaModel, Long>{
-	public List<TemaModel> findAllByDescricaoIgnoreCase(String descricao);
+	public List<TemaModel> findAllByDescricaoContainingIgnoreCase(String descricao);
 }

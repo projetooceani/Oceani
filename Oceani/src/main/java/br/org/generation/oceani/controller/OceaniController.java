@@ -40,7 +40,7 @@ public class OceaniController {
 	
 	@GetMapping("/descricao/{descricao}")
 	public ResponseEntity <List <TemaModel>> getByDescricao (@PathVariable String descricao){
-		return ResponseEntity.ok(oceaniRepository.findAllByDescricaoIgnoreCase(descricao));
+		return ResponseEntity.ok(oceaniRepository.findAllByDescricaoContainingIgnoreCase(descricao));
 	}
 	
 	@PostMapping
