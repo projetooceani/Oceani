@@ -1,12 +1,18 @@
 package br.org.generation.oceani.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table (name = "tb_temas")
@@ -27,6 +33,10 @@ public class TemaModel {
 	@Size(min = 5, max = 250, message = "o atributo keywords deve ter no mínimo 5 e no máximo 250 caracteres")
 	@NotNull
 	private String keywords;
+	
+	@OneToMany(mappedBy = "tema" , cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("tema")
+	private List<PostagemModel> postagem;
 
 	
 	public long getId() {
@@ -60,7 +70,16 @@ public class TemaModel {
 	public void setKeywords(String keywords) {
 		this.keywords = keywords;
 	}
-	
+
+	public List<PostagemModel> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<PostagemModel> postagem) {
+		this.postagem = postagem;
+	}
+
+
 
 
 }
