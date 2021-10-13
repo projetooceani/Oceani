@@ -59,11 +59,11 @@ public class PostagemController {
 		postagemRepository.deleteById(id);
 	}
 	@PutMapping("/curtir/{id}")
-	public ResponseEntity<PostagemModel> putCurtirPostagem(@PathVariable Long id) {
+	public ResponseEntity<PostagemModel> putCurtirPostagem(@PathVariable long id) {
 		return ResponseEntity.status(HttpStatus.OK).body(postagemService.curtir(id));
 	}
 	@PutMapping("/descurtir/{id}")
-	public ResponseEntity<PostagemModel> putDescurtirPostagem(@PathVariable Long id){
+	public ResponseEntity<PostagemModel> putDescurtirPostagem(@PathVariable long id){
 		return ResponseEntity.status(HttpStatus.OK).body(postagemService.descurtir(id));
 	}
 
