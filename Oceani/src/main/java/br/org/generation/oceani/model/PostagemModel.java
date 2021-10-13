@@ -2,6 +2,7 @@ package br.org.generation.oceani.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,6 +39,9 @@ public class PostagemModel {
 	private String hashtag;
 	
 	private String imagem;
+	
+	@Column(columnDefinition = "integer default 0")
+	private int curtida;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
@@ -110,4 +114,13 @@ public class PostagemModel {
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
 	}
+
+	public int getCurtida() {
+		return curtida;
+	}
+
+	public void setCurtida(int curtida) {
+		this.curtida = curtida;
+	}
+	
 }
