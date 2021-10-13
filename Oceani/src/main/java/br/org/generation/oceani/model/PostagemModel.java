@@ -37,6 +37,8 @@ public class PostagemModel {
 	
 	private String hashtag;
 	
+	private String imagem;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private TemaModel tema;
@@ -100,7 +102,12 @@ public class PostagemModel {
 	public void setUsuario(UsuarioModel usuario) {
 		this.usuario = usuario;
 	}
-	
-	
 
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
 }
