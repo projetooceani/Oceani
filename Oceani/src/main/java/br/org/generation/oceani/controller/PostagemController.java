@@ -26,6 +26,7 @@ public class PostagemController {
 
 	@Autowired
 	private PostagemRepository postagemRepository;
+	@Autowired
 	private PostagemService postagemService;
 
 	@GetMapping
@@ -61,10 +62,6 @@ public class PostagemController {
 	@PutMapping("/curtir/{id}")
 	public ResponseEntity<PostagemModel> putCurtirPostagemId(@PathVariable Long id) {
 		return ResponseEntity.status(HttpStatus.OK).body(postagemService.curtir(id));
-	}
-	@PutMapping("/descurtir/{id}")
-	public ResponseEntity<PostagemModel> putDescurtirPostagemId(@PathVariable Long id){
-		return ResponseEntity.status(HttpStatus.OK).body(postagemService.descurtir(id));
 	}
 
 }

@@ -23,19 +23,6 @@ public class PostagemService {
 
 		return postagemRepository.save(postagem);
 	}
-	
-	public PostagemModel descurtir(Long id) {
-		
-		PostagemModel postagem = buscarPostagemPeloId(id);
-		
-		if(postagem.getCurtida() > 0) {
-			
-			postagem.setCurtida(postagem.getCurtida() - 1);
-		} else {
-			postagem.setCurtida(0);
-		}
-		return postagemRepository.save(postagem);
-	}
 
 	private PostagemModel buscarPostagemPeloId(Long id) {
 
